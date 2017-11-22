@@ -2,162 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Alarm Clock</title>
-    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet">
+    <link rel="stylesheet" href="master.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <title>Home</title>
     <style media="screen">
-      body {
-        background-image: url("https://media.giphy.com/media/dXoQnoUUSUIvK/giphy.gif");
-        background-size: cover;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      main {
-        /*margin: 0 auto;*/
-        text-align: center;
-        /*padding: 10px;*/
-
-        left: 50%
-        top: 50%
-        transform: translate(-50%, -50%);
-      }
-      main h1 {
-        font-family: 'Aclonica', sans-serif;
-        font-size: 150px;
-      }
-      main .alarm-button {
-        font-family: 'Aclonica', sans-serif;
-        padding: 5px;
-        margin: 130px 30px;
+      /* Size and Positioning */
+      #synopsis {
         font-size: 32px;
-        border-radius: 10px;
       }
-      .alarm-button:active {
-        background-color: yellow;
-      }
-      .alarm-button:focus {
-        outline: 0;
-      }
-      #set-alarm {
-        color: green;
-      }
-      #clear-alarm {
-        color: red;
+      /* Colors and Fonts */
+      #synopsis {
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1 id="time"></h1>
-      <div class="alarmTime">
-        <select class="alarm" id="hour"></select>
-        <select class="alarm" id="minute"></select>
-        <select class="alarm" id="second"></select>
+    <!-- Floating burger! -->
+    <div class="burger1">
+      <div class="burger2">
+        <img id="burger" src="images/burger.png" alt="burger">
       </div>
-      <div class="alarmButtons">
-        <button class="alarm-button" id="set-alarm" onclick="setAlarm()">Set Alarm</button>
-        <button class="alarm-button" id="clear-alarm" onclick="resetAlarm()">Clear Alarm</button>
-      </div>
-      <p id="alarm-time"></p>
-    </main>
-    <div id="alarm-sound"></div>
+    </div>
 
-    <script type="text/javascript">
-      // Add alarm sound
-      // var alarmSound = new Audio("https://www.freespecialeffects.co.uk/soundfx/telephone/phone_offhook.wav");
-      var alarmSound = new Audio("what_up_internet.m4a");
-      alarmSound.loop = true;
+    <div class="grid-container">
+      <header class="grid-item"><h1>Bill &amp; Ted's Excellent Adventure</h1></header>
 
-      // Get Local Time
-      function getTime() {
-        let date = new Date;
-        let seconds = date.getSeconds();
-        let minutes = date.getMinutes();
-        let hours = date.getHours();
-        // Add leading zero to hours/minutes/seconds with values less than 10
-        hours = addZero(hours);
-        minutes = addZero(minutes);
-        seconds = addZero(seconds);
+      <nav class="grid-item">
+        <ul class="menu">
+          <li class="menu-item"><a href="index.html">HOME</a></li>
+          <li class="menu-item"><a href="pages/cast.html">CAST</a></li>
+          <li class="menu-item"><a href="pages/quotes.html">QUOTES</a></li>
+          <li class="menu-item"><a href="pages/media.html">MEDIA</a></li>
+        </ul>
+      </nav>
 
-        // Set inner html of element id of 'time' to hours:minutes:seconds
-        var currentTime = `${hours}:${minutes}:${seconds}`;
-        document.getElementById('time').innerHTML = currentTime;
-        // console.log(`Local Time: ${currentTime}`);
-        return currentTime;
-      }
-      // Call getTime() function every 1000ms
-      // setInterval(getTime, 1000);
+      <main class="grid-item">
+        <section id="synopsis">
+          <div class="synopsis">
+            <h2><b>BILL &amp; TED'S EXCELLENT SYNOPSIS</b></h2>
+          </div>
+          In the small town of San Dimas, a few miles away from Los Angeles, there are two nearly brain dead teenage boys going by the names of Bill S, Preston ESQ. and Ted Theodore Logan, they have a dream together of starting their own rock and roll band called the "Wyld Stallyns". Unfortunately, they are still in high school and on the verge of failing out of their school as well, and if they do not pass their upcoming history report, they will be separated as a result of Ted's father sending him to military school. But, what Bill and Ted do not know is that they must stay together to save the future. So, a man from the future named Rufus came to help them pass their report. So, both Bill and Ted decided to gather up historical figures which they need for their report. They are hoping that this will help them pass their report so they can stay together. —John Wiggins
+          <h6>Released: February 17, 1989</h6>
+        </section>
+      </main>
 
-      // Add leading zero to minutes/seconds less than 10
-      function addZero(t) {
-        return (t < 10) ? `0${t}` : t;
-      }
-
-      // Populate dropdown options for element id 'hour'
-      function alarmHours() {
-        let hour = document.getElementById('hour');
-
-        for (var i=0; i<24; i++) {
-          hour.options[i] = new Option(addZero(i), i);
-        }
-      }
-      alarmHours();
-
-      // Populate dropdown options for element id 'minute'
-      function alarmMinutes() {
-        let minute = document.getElementById('minute');
-
-        for (var i=0; i<60; i++) {
-          minute.options[i] = new Option(addZero(i), i);
-        }
-      }
-      alarmMinutes();
-
-      // Populate dropdown options for element id 'second'
-      function alarmSeconds() {
-        let second = document.getElementById('second');
-
-        for (var i=0; i<60; i++) {
-          second.options[i] = new Option(addZero(i), i);
-        }
-      }
-      alarmSeconds();
-
-      // Set alarm to whatever the values in the dropdown are set to
-      function setAlarm() {
-        let hours = document.getElementById('hour').selectedIndex;
-        let minutes = document.getElementById('minute').selectedIndex;
-        let seconds = document.getElementById('second').selectedIndex;
-        // Add leading zeros to hours/minutes/seconds if needed
-        hours = addZero(hours);
-        minutes = addZero(minutes);
-        seconds = addZero(seconds);
-
-        // Set alarm to a var in hours:minutes:seconds format
-        var alarmTime = `${hours}:${minutes}:${seconds}`;
-        console.log(`Alarm set for ${alarmTime}`);
-        document.getElementById('alarm-time').innerHTML = `${alarmTime}`;
-      }
-
-      // Clear alarm and pause sound if it's playing
-      function resetAlarm() {
-        alarmSound.pause();
-      }
-
-      // Check if currentTime == alarmTime
-      function alarm() {
-        // let currentTime = document.getElementById('time').innerHTML;
-        let currentTime = getTime();
-        let alarmTime = document.getElementById('alarm-time').innerHTML;
-        // console.log(`Current Time: ${currentTime}`);
-        // console.log(`Alarm Time: ${alarmTime}`);
-        if(currentTime == alarmTime) {
-          console.log("ALARM! ALARM! ALARM!");
-          alarmSound.play();
-        }
-      }
-      setInterval(alarm, 1000);
-    </script>
+      <footer class="grid-item">
+        <h2>Excellent Social Media</h2>
+        <a href="https://www.facebook.com/Bill-Teds-Excellent-Adventure-The-Movie-238232546304565/">
+          <img src="https://i2.wp.com/www.7thstreetpublicmarket.com/wp-content/uploads/2017/08/facebook-icon-preview-1-400x400.png" alt="facebook">
+        </a>
+      </footer>
+    </div>
   </body>
 </html>
