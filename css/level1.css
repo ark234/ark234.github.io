@@ -1,0 +1,17 @@
+/*Size & Positioning*/
+.platform-win {
+  top: 0 !important;
+}
+#one{
+  width: 1400px;
+  height: 100px;
+  position: absolute;
+}
+/*Animations*/
+
+
+
+/*Colors and Fonts*/
+#one {
+  background-color: rgba(25, 157, 216, 0.75);
+}
