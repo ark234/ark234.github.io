@@ -1,0 +1,47 @@
+/*************************************
+****SIZE, DISPLAY, AND POSITIONING**** 
+*************************************/
+#container {
+	position: relative;
+	z-index: 2;
+	color: white;
+	width: 50%;
+	border: 3px white dotted;
+	text-align: center;
+	transform: translateX(50%) translateY(50%);
+}
+#list{
+	position: absolute;
+	padding: 10px;
+	margin: 0;
+}
+ul {
+	list-style-type: none;
+}
+
+/*************************************
+**************ANIMATIONS************** 
+*************************************/
+
+
+
+/*************************************
+****BACKGROUNDS, COLORS, AND FONTS**** 
+*************************************/
+#background-video {
+	position: fixed;
+ 	left: 0;
+	top: 0; 
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
+}
+#bg {
+	position: fixed;
+	left: 0;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	background: rgba(0, 200, 255, 0.50);
+	background: linear-gradient(rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+}
