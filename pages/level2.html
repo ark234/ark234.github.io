@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Level 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/master.css">
+	<link rel="stylesheet" href="../css/level2.css">
+
+  </head>
+  <body>
+    <!-- Level display -->
+    <div class="level">
+      <h1>Level 2</h1>
+    </div>
+
+    <!-- Platforms -->
+    <div class="platform-container">
+      <div class="platform-win"></div>
+      <div class="platform-start"></div>
+      <div class="platform" id="one"></div>
+      <div class="platform" id="two"></div>
+    </div>
+
+    <!-- Nav Menu at the bottom of the screen -->
+    <nav>
+      <a href="level1.html"><button id="previous">Previous Level</button></a>
+  		<a href="../index.html"><button id="main">Main Menu</button></a>
+    </nav>
+
+    <!-- Win and Lose Modals -->
+    <div class="modal" id="modal-win">
+      <div class="modal-content">
+        <h1>You Win!</h1>
+        <nav>
+          <a href="level3.html"><button id="next">Next Level</button></a>
+          <a href="../index.html"><button id="main">Main Menu</button></a>
+        </nav>
+      </div>
+    </div>
+    <div class="modal" id="modal-lose">
+      <div class="modal-content">
+        <h1>You Lose!</h1>
+        <nav>
+          <a href="level2.html"><button id="retry">Retry</button></a>
+          <a href="../index.html"><button id="main">Main Menu</button></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="explosion" src="../images/explosion.mp4" poster="../images/explosion.jpg" type="video/mp4" autoplay loop muted></video>
+
+    <!-- This explosive video goes off when the losing modal is triggered -->
+    <video id="fireworks" src="../images/fireworks.mp4" poster="../images/fireworks.jpg" type="video/mp4" autoplay loop muted></video>
+
+    <script type="text/javascript" src="../js/hover.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+/*Size & Positioning*/
+#one {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+#two {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 1200px;
+  top: 500px;
+}
+/*Animations*/
+
+
+
+/*Colors and Fonts*/
+#one {
+  background-color: rgba(25, 157, 216, 0.75);
+}
+#two {
+  background-color: rgba(25, 157, 216, 0.75);
+}

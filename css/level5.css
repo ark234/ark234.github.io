@@ -1,0 +1,25 @@
+/*Size & Positioning*/
+#one{
+  width: 110%;
+  height: 100px;
+  position: absolute;
+  top: 350px;
+  left: -7.5%;
+  animation: spin 12s linear infinite;
+  overflow: hidden;
+}
+/*Animations*/
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+
+/*Colors and Fonts*/
+#one {
+  background-color: rgba(25, 157, 216, 0.75);
+}
